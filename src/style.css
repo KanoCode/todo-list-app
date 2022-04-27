@@ -1,32 +1,41 @@
 body {
-  background-color: #f6f6f6;
+  background-color: #fff;
+  height: 100vh;
+}
+nav {
+  height: 6vh;
+  width: 100%;
+  background-color: black;
 }
 
 .to-do-container {
-  width: 330px;
-  box-shadow: 8px 10px 10px grey;
+  width: 50%;
+  box-shadow: 8px 10px 20px grey;
   margin: 20% auto;
 }
 
-/* @media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
-    }
-  } */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+}
+.header p {
+  margin-right: 56%;
 }
 
 .tdo-item {
   position: relative;
   display: grid;
   height: 50px;
+  /* margin: 10px 10px; */
   grid-template-columns: 15px auto 15px;
   align-items: center;
-  width: 100%;
+  width: 94%;
+  margin: auto;
   border-bottom: solid #dddddd 1px;
+}
+.tdo-item input::placeholder {
+  font-style: italic;
 }
 
 .tdo-item input[type="button"] {
@@ -38,20 +47,27 @@ body {
   width: 90%;
 }
 
+.tdo-item input {
+  background-color: inherit;
+}
+
 .last-row {
-  background-color: #dddddd;
+  background-color: #f6f6f6;
   height: 50px;
 
   display: flex;
 }
 .last-row p {
-  margin: 8% auto;
+  margin: auto;
 }
 
 .before {
   border: solid 3px grey;
   width: 14px;
   height: 14px;
+}
+.before:hover {
+  cursor: pointer;
 }
 
 .completed {
@@ -68,4 +84,12 @@ body {
 
 .fa-ellipsis-vertical:hover {
   cursor: move;
+}
+
+footer {
+  height: 6vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
 }
