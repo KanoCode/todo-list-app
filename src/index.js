@@ -1,6 +1,5 @@
 import './style.css';
-import '@fortawesome/fontawesome-free/js/all.js';
-import '@fortawesome/fontawesome-free/css/all.css';
+import './modules/dependencies.js';
 
 const toDoList = [
   { description: 'Wash the dishes', completed: false, index: 0 },
