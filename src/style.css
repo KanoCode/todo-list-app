@@ -2,6 +2,7 @@ body {
   background-color: #fff;
   height: 100vh;
 }
+
 nav {
   height: 6vh;
   width: 100%;
@@ -19,6 +20,7 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
+
 .header p {
   margin-right: 56%;
 }
@@ -27,13 +29,15 @@ nav {
   position: relative;
   display: grid;
   height: 50px;
+
   /* margin: 10px 10px; */
   grid-template-columns: 15px auto 15px;
   align-items: center;
   width: 94%;
   margin: auto;
-  border-bottom: solid #dddddd 1px;
+  border-bottom: solid #ddd 1px;
 }
+
 .tdo-item input::placeholder {
   font-style: italic;
 }
@@ -48,15 +52,18 @@ nav {
 }
 
 .tdo-item input {
+  grid-column: 1/4;
+  border: none;
+  height: 100%;
   background-color: inherit;
 }
 
 .last-row {
   background-color: #f6f6f6;
   height: 50px;
-
   display: flex;
 }
+
 .last-row p {
   margin: auto;
 }
@@ -66,6 +73,7 @@ nav {
   width: 14px;
   height: 14px;
 }
+
 .before:hover {
   cursor: pointer;
 }
@@ -73,11 +81,7 @@ nav {
 .completed {
   text-decoration: line-through;
 }
-.tdo-item input {
-  grid-column: 1/4;
-  border: none;
-  height: 100%;
-}
+
 .tdo-item input:focus {
   outline: none;
 }

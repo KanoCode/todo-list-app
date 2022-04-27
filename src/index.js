@@ -1,21 +1,20 @@
-import "./style.css";
-import "@fortawesome/fontawesome-free/js/all.js";
-import "@fortawesome/fontawesome-free/css/all.css";
+import './style.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const toDoList = [
-  { description: "Wash the dishes", completed: false, index: 0 },
-  { description: "Complete To Do list Project", completed: false, index: 1 },
+  { description: 'Wash the dishes', completed: false, index: 0 },
+  { description: 'Complete To Do list Project', completed: false, index: 1 },
 ];
 
-const ToDoList = document.getElementById("to-do-list");
+const ToDoList = document.getElementById('to-do-list');
 
-console.log(toDoList);
 const createTodoItem = (obj) => {
-  const tdoItem = document.createElement("div");
-  tdoItem.className = "tdo-item";
+  const tdoItem = document.createElement('div');
+  tdoItem.className = 'tdo-item';
   tdoItem.innerHTML = ` <span class="before"></span>
 <input
-  class="${obj.completed ? "completed" : ""}"
+  class="${obj.completed ? 'completed' : ''}"
   type="button"
   value="${obj.description}"
   onclick="msg()"
@@ -26,7 +25,6 @@ const createTodoItem = (obj) => {
   ToDoList.append(tdoItem);
 };
 
-toDoList.forEach((a, i) => {
+toDoList.forEach((a) => {
   createTodoItem(a);
-  console.log(i, a.index);
 });
