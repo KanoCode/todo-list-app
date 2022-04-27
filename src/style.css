@@ -1,4 +1,97 @@
-h1{
-    color:blue;
-    font-size: 100px;
+body {
+  background-color: #fff;
+  height: 100vh;
+}
+
+nav {
+  height: 6vh;
+  width: 100%;
+  background-color: black;
+}
+
+.to-do-container {
+  width: 50%;
+  box-shadow: 8px 10px 20px grey;
+  margin: 10% auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header p {
+  margin-right: 64%;
+}
+
+.tdo-item {
+  position: relative;
+  display: grid;
+  height: 50px;
+  grid-template-columns: 15px auto 15px;
+  align-items: center;
+  width: 94%;
+  margin: auto;
+  border-bottom: solid #ddd 1px;
+}
+
+.tdo-item input::placeholder {
+  font-style: italic;
+}
+
+.tdo-item input[type="button"] {
+  background-color: inherit;
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
+}
+
+.tdo-item input {
+  grid-column: 1/4;
+  border: none;
+  height: 100%;
+  background-color: inherit;
+}
+
+.last-row {
+  background-color: #f6f6f6;
+  height: 50px;
+  display: flex;
+}
+
+.last-row p {
+  margin: auto;
+}
+
+.before {
+  border: solid 3px grey;
+  width: 14px;
+  height: 14px;
+}
+
+.before:hover {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.tdo-item input:focus {
+  outline: none;
+}
+
+.fa-ellipsis-vertical:hover {
+  cursor: move;
+}
+
+footer {
+  height: 6vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
 }
