@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps.
 - in your terminal run git clone `https://github.com/KanoCode/todo-list-app.git`.
 - go to the repository folder in your code editor
 - run npm install
-- run start 
+- run npm start 
 - enjoy the app
 
 ## Authors
