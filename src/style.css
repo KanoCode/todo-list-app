@@ -95,3 +95,6 @@ footer {
   width: 100%;
   background-color: black;
 }
+.hidden{
+  display: none;
+}
