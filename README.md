@@ -1,6 +1,9 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # To-do list
+![screenshot-to-do-list](https://user-images.githubusercontent.com/95347844/165528731-966f9785-5f85-4167-b13c-29c70ea05c70.png)
+
+
 
 > This is a simple webapp that allows a user to keep track of things to do within a day, mark activities that have been done, it also allows a user to delete an activity.
 
