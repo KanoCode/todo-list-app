@@ -1,5 +1,5 @@
 import './style.css';
-import './modules/dependencies.js';
+import './modules/dependencies';
 
 const toDoList = [
   { description: 'Wash the dishes', completed: false, index: 0 },
