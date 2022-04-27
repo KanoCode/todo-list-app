@@ -7,6 +7,40 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello webpack</h1>
+    <div class="to-do-container">
+      <div class="header">
+        <p>Today's To Do</p>
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
+      <div class="tdo-item">
+        <input type="text" placeholder="Add to your list..." />
+      </div>
+      <div id="to-do-list">
+        <div class="tdo-item">
+          <span class="before"></span>
+          <input
+            type="button"
+            value="Complete to do list project"
+            onclick="msg()"
+          />
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div class="tdo-item">
+          <span class="before"></span>
+          <input
+            class="completed"
+            type="button"
+            value="Complete to do list project"
+            onclick="msg()"
+          />
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+      </div>
+ 
+
+      <div class="last-row"><p>Clear all completed</p></div>
+    </div>
   </body>
 </html>

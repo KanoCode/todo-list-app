@@ -1,4 +1,71 @@
-h1{
-    color:blue;
-    font-size: 100px;
+body {
+  background-color: #f6f6f6;
+}
+
+.to-do-container {
+  width: 330px;
+  box-shadow: 8px 10px 10px grey;
+  margin: 20% auto;
+}
+
+/* @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  } */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tdo-item {
+  position: relative;
+  display: grid;
+  height: 50px;
+  grid-template-columns: 15px auto 15px;
+  align-items: center;
+  width: 100%;
+  border-bottom: solid #dddddd 1px;
+}
+
+.tdo-item input[type="button"] {
+  background-color: inherit;
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
+}
+
+.last-row {
+  background-color: #dddddd;
+  height: 50px;
+
+  display: flex;
+}
+.last-row p {
+  margin: 8% auto;
+}
+
+.before {
+  border: solid 3px grey;
+  width: 14px;
+  height: 14px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+.tdo-item input {
+  grid-column: 1/4;
+  border: none;
+  height: 100%;
+}
+.tdo-item input:focus {
+  outline: none;
+}
+
+.fa-ellipsis-vertical:hover {
+  cursor: move;
 }
