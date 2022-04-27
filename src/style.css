@@ -22,15 +22,13 @@ nav {
 }
 
 .header p {
-  margin-right: 56%;
+  margin-right: 64%;
 }
 
 .tdo-item {
   position: relative;
   display: grid;
   height: 50px;
-
-  /* margin: 10px 10px; */
   grid-template-columns: 15px auto 15px;
   align-items: center;
   width: 94%;
