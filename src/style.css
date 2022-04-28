@@ -49,6 +49,14 @@ nav {
   width: 90%;
 }
 
+#to-do-list .tdo-item > input[type="text"] {
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
+}
+
 .tdo-item input {
   grid-column: 1/4;
   border: none;
@@ -95,6 +103,30 @@ footer {
   width: 100%;
   background-color: black;
 }
-.hidden{
+
+.active {
+  background-color: rgb(210, 255, 47);
+}
+.active .fa-ellipsis-vertical {
   display: none;
+}
+.active .fa-trash-can {
+  display: flex;
+}
+
+.fa-ellipsis-vertical {
+  display: flex;
+}
+.fa-trash-can {
+  display: none;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.fa-solid {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }

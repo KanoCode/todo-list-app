@@ -1,15 +1,57 @@
-import './style.css';
-import './modules/dependencies';
-import './modules/UpdateList'
-import createList from './modules/createList'
+import "./style.css";
+import "./modules/dependencies";
+import "./modules/UpdateList";
+import createList from "./modules/createList";
+import { ToDoList } from "./modules/createList";
 
-const toDoList = [
-  { description: 'Wash the dishes', completed: false, index: 0 },
-  { description: 'Complete To Do list Project', completed: false, index: 1 },
-];
+import reloadList from "./modules/preload";
 
+const toDoList = JSON.parse(localStorage.getItem("activityArr"));
 
+const todoItems = ToDoList.childNodes;
 
-toDoList.forEach((a) => {
-  createList(a);
+// const removeClass = (arr) => {
+// arr.forEach((a)=>{
+//   a
+// })
+  
+// };
+
+reloadList(toDoList);
+
+todoItems.forEach((node, i,arr) => {
+  let deleteBtns = node.childNodes[5];
+  deleteBtns.addEventListener("click", () => {
+    if (input.value === "") {
+      toDoList.splice(i, 1);
+      localStorage.setItem("activityArr", JSON.stringify(toDoList));
+      window.location.reload();
+    } else {
+      window.location.reload();
+    }
+  });
+
+  input.addEventListener("click", (e) => {
+    input.setAttribute("type", "text");
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        if (input.value === "") {
+          toDoList.splice(i, 1);
+          localStorage.setItem("activityArr", JSON.stringify(toDoList));
+          window.location.reload();
+        } else {
+          let newList = JSON.parse(localStorage.getItem("activityArr"));
+
+          newList[i].description = input.value;
+
+          localStorage.setItem("activityArr", JSON.stringify(newList));
+          window.location.reload();
+        }
+      }
+    });
+  });
 });
+
+
+const active = document.querySelectorAll(`tdo-item`);
+console.log(active)

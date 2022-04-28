@@ -1,27 +1,52 @@
-console.log('updated list')
+import createList from "./createList";
 
-const input = document.getElementById('add-to-List');
+import reloadList from "./preload";
 
-// add to local storage 
-const list = []
+const input = document.getElementById("add-to-List");
 
-console.log(input)
+// const
 
-const addItem = ()=>{
-    if(input.value !== ""){
-        let obj = {
-            description:input.value,
-            completed:false,
-            index: list.length === 0 ? 0 : list.length, 
-        }
-        list.push(obj)
-        localStorage.setItem("activityArr",JSON.stringify(list));
-        input.value = ""
-        console.log(list)
+// add to local storage
+const isNull = JSON.parse(localStorage.getItem("activityArr"));
+let list = [];
+
+const addItem = () => {
+  if (!isNull) {
+    let newlist = [];
+    if (input.value !== "") {
+      let obj = {
+        description: input.value,
+        completed: false,
+        index: 0,
+      };
+
+      newlist.push(obj);
+
+      createList(obj);
+      input.value = "";
+
+      localStorage.setItem("activityArr", JSON.stringify(newlist));
+      location.reload();
     }
-}
-input.addEventListener('keypress',(e)=>{
-    if(e.key ==="Enter"){
-        addItem()
+  } else {
+    let updatedList = JSON.parse(localStorage.getItem("activityArr"));
+
+    if (input.value !== "") {
+      let obj = {
+        description: input.value,
+        completed: false,
+        index: updatedList.length,
+      };
+      updatedList.push(obj);
+      createList(obj);
+      input.value = "";
+      localStorage.setItem("activityArr", JSON.stringify(updatedList));
+      location.reload();
     }
-})
+  }
+};
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    addItem();
+  }
+});
