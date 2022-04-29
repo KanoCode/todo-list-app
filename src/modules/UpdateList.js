@@ -1,14 +1,9 @@
 import createList from './createList';
 
-import reloadList from './preload';
-
 const input = document.getElementById('add-to-List');
-
-// const
 
 // add to local storage
 const isNull = JSON.parse(localStorage.getItem('activityArr'));
-const list = [];
 
 const addItem = () => {
   if (!isNull) {
@@ -26,7 +21,7 @@ const addItem = () => {
       input.value = '';
 
       localStorage.setItem('activityArr', JSON.stringify(newlist));
-      location.reload();
+      window.location.reload();
     }
   } else {
     const updatedList = JSON.parse(localStorage.getItem('activityArr'));
@@ -41,7 +36,7 @@ const addItem = () => {
       createList(obj);
       input.value = '';
       localStorage.setItem('activityArr', JSON.stringify(updatedList));
-      location.reload();
+      window.location.reload();
     }
   }
 };

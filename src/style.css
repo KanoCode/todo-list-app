@@ -30,7 +30,6 @@ nav {
 .active {
   position: relative;
   display: grid;
-  
   gap: 4%;
   height: 50px;
   grid-template-columns: 15px auto 15px;
@@ -53,7 +52,19 @@ nav {
   width: 90%;
 }
 
-#to-do-list .tdo-item > input {
+.tdo-item input {
+  grid-column: 1/4;
+  border: none;
+  height: 100%;
+  background-color: inherit;
+}
+
+.active input {
+  border: none;
+}
+
+.tdo-item input:focus {
+  outline: none;
   margin-left: 4%;
   grid-column: 2 / span 1;
   text-align: left;
@@ -61,11 +72,19 @@ nav {
   width: 90%;
 }
 
-.tdo-item input {
-  grid-column: 1/4;
-  border: none;
-  height: 100%;
+.active input:focus {
+  height: 48px;
+  width: 80%;
   background-color: inherit;
+  outline: none;
+}
+
+#to-do-list .tdo-item > input {
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
 }
 
 .last-row {
@@ -92,19 +111,6 @@ nav {
   text-decoration: line-through;
 }
 
-.tdo-item input:focus {
-  outline: none;
-  margin-left: 4%;
-  grid-column: 2 / span 1;
-  text-align: left;
-  height: 100%;
-  width: 90%;
-}
-
-.fa-ellipsis-vertical:hover {
-  cursor: move;
-}
-
 footer {
   height: 6vh;
   position: fixed;
@@ -116,27 +122,25 @@ footer {
 .active {
   background-color: #fdf7e2;
 }
-.active input {
-  border: none;
-}
-.active input:focus {
-  height: 48px;
-  width: 80%;
-  background-color: inherit;
-  outline: none;
-}
-.active .fa-ellipsis-vertical {
-  display: none;
-}
-.active .fa-trash-can {
-  display: flex;
-}
 
 .fa-ellipsis-vertical {
   display: flex;
 }
+
+.fa-ellipsis-vertical:hover {
+  cursor: move;
+}
+
+.active .fa-ellipsis-vertical {
+  display: none;
+}
+
 .fa-trash-can {
   display: none;
+}
+
+.active .fa-trash-can {
+  display: flex;
 }
 
 .icon-container {
@@ -145,6 +149,6 @@ footer {
 
 .fa-solid {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
