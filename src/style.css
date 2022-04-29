@@ -25,13 +25,16 @@ nav {
   margin-right: 64%;
 }
 
-.tdo-item {
+#to-do-list > div,
+.tdo-item,
+.active {
   position: relative;
   display: grid;
+  gap: 4%;
   height: 50px;
   grid-template-columns: 15px auto 15px;
   align-items: center;
-  width: 94%;
+  width: 99%;
   margin: auto;
   border-bottom: solid #ddd 1px;
 }
@@ -54,6 +57,34 @@ nav {
   border: none;
   height: 100%;
   background-color: inherit;
+}
+
+.active input {
+  border: none;
+}
+
+.tdo-item input:focus {
+  outline: none;
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
+}
+
+.active input:focus {
+  height: 48px;
+  width: 80%;
+  background-color: inherit;
+  outline: none;
+}
+
+#to-do-list .tdo-item > input {
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
 }
 
 .last-row {
@@ -80,18 +111,44 @@ nav {
   text-decoration: line-through;
 }
 
-.tdo-item input:focus {
-  outline: none;
-}
-
-.fa-ellipsis-vertical:hover {
-  cursor: move;
-}
-
 footer {
   height: 6vh;
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: black;
+}
+
+.active {
+  background-color: #fdf7e2;
+}
+
+.fa-ellipsis-vertical {
+  display: flex;
+}
+
+.fa-ellipsis-vertical:hover {
+  cursor: move;
+}
+
+.active .fa-ellipsis-vertical {
+  display: none;
+}
+
+.fa-trash-can {
+  display: none;
+}
+
+.active .fa-trash-can {
+  display: flex;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.fa-solid {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

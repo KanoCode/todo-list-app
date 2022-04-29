@@ -1,29 +1,95 @@
 import './style.css';
 import './modules/dependencies';
+import './modules/UpdateList';
+import * as lo from 'lodash';
+import { ToDoList } from './modules/createList';
 
-const toDoList = [
-  { description: 'Wash the dishes', completed: false, index: 0 },
-  { description: 'Complete To Do list Project', completed: false, index: 1 },
-];
+import reloadList from './modules/preload';
 
-const ToDoList = document.getElementById('to-do-list');
+const toDoList = JSON.parse(localStorage.getItem('activityArr'));
 
-const createTodoItem = (obj) => {
-  const tdoItem = document.createElement('div');
-  tdoItem.className = 'tdo-item';
-  tdoItem.innerHTML = ` <span class="before"></span>
-<input
-  class="${obj.completed ? 'completed' : ''}"
-  type="button"
-  value="${obj.description}"
-  onclick="msg()"
-/>
+const todoItems = ToDoList.childNodes;
 
-<i class="fa-solid fa-ellipsis-vertical"></i>
-`;
-  ToDoList.append(tdoItem);
-};
+reloadList(toDoList);
 
-toDoList.forEach((a) => {
-  createTodoItem(a);
+const allToDoInputs = document.querySelectorAll('#to-do-list .tdo-item');
+
+todoItems.forEach((node, i) => {
+  const input = node.childNodes[3];
+  const deleteBtns = node.childNodes[5];
+  deleteBtns.addEventListener('click', () => {
+    if (input.value === '') {
+      const filterdDoList = lo.without(toDoList, toDoList[i]);
+      filterdDoList.map((obj, i) => {
+        obj.index = i;
+        return obj;
+      });
+      reloadList(filterdDoList);
+      localStorage.setItem('activityArr', JSON.stringify(filterdDoList));
+      window.location.reload();
+    } else {
+      window.location.reload();
+    }
+  });
+
+  // input events form editing
+  input.addEventListener('click', () => {
+    const lists = document.querySelectorAll('.to-do-list input[type=text]');
+    lists.forEach((item) => {
+      item.type = 'button';
+    });
+    input.type = 'text';
+
+    input.addEventListener(
+      'keypress',
+      (e) => {
+        if (e.key === 'Enter') {
+          if (input.value === '') {
+            const filterdDoList = lo.without(toDoList, toDoList[i]);
+            reloadList(filterdDoList);
+
+            filterdDoList.map((obj, i) => {
+              obj.index = i;
+              return obj;
+            });
+
+            localStorage.setItem('activityArr', JSON.stringify(filterdDoList));
+            window.location.reload();
+          } else {
+            const newList = JSON.parse(localStorage.getItem('activityArr'));
+
+            newList[i].description = input.value;
+
+            localStorage.setItem('activityArr', JSON.stringify(newList));
+            window.location.reload();
+          }
+        }
+      },
+      false,
+    );
+  });
+});
+
+// make active class
+allToDoInputs.forEach((a, i, arr) => {
+  const copyArr = Array.from(arr);
+  a.addEventListener('click', (e) => {
+    const filterd = copyArr.filter((a) => a.id !== e.target.id);
+
+    filterd.forEach((a) => {
+      a.classList.remove('active');
+    });
+    const clicked = lo.difference(copyArr, filterd)[0];
+    clicked.className = 'active tdo-item';
+
+    const toNodeList = function (arrayOfNodes) {
+      const fragment = document.createDocumentFragment();
+      arrayOfNodes.forEach((item) => {
+        fragment.appendChild(item.cloneNode());
+      });
+      return fragment.childNodes;
+    };
+
+    toNodeList(copyArr);
+  });
 });
