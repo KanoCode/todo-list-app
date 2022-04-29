@@ -1,67 +1,71 @@
-import "./style.css";
-import "./modules/dependencies";
-import "./modules/UpdateList";
-import * as lo from "lodash";
-import { ToDoList } from "./modules/createList";
+import './style.css';
+import './modules/dependencies';
+import './modules/UpdateList';
+import * as lo from 'lodash';
+import { ToDoList } from './modules/createList';
 
-import reloadList from "./modules/preload";
+import reloadList from './modules/preload';
 
-const toDoList = JSON.parse(localStorage.getItem("activityArr"));
+const toDoList = JSON.parse(localStorage.getItem('activityArr'));
 
 const todoItems = ToDoList.childNodes;
 
 reloadList(toDoList);
 
-const allToDoInputs = document.querySelectorAll("#to-do-list .tdo-item");
+const allToDoInputs = document.querySelectorAll('#to-do-list .tdo-item');
 
 todoItems.forEach((node, i) => {
   const input = node.childNodes[3];
   const deleteBtns = node.childNodes[5];
-  deleteBtns.addEventListener("click", () => {
-    if (input.value === "") {
+  deleteBtns.addEventListener('click', () => {
+    if (input.value === '') {
       const filterdDoList = lo.without(toDoList, toDoList[i]);
-      console.log(filterdDoList);
+      filterdDoList.map((obj, i) => {
+        obj.index = i;
+        return obj;
+      });
       reloadList(filterdDoList);
-      localStorage.setItem("activityArr", JSON.stringify(filterdDoList));
-      // window.location.reload();
+      localStorage.setItem('activityArr', JSON.stringify(filterdDoList));
+      window.location.reload();
     } else {
       window.location.reload();
     }
   });
 
   // input events form editing
-  input.addEventListener("click", () => {
-    const lists = document.querySelectorAll(".to-do-list input[type=text]");
+  input.addEventListener('click', () => {
+    const lists = document.querySelectorAll('.to-do-list input[type=text]');
     lists.forEach((item) => {
-      item.type = "button";
+      item.type = 'button';
     });
-    input.type = "text";
+    input.type = 'text';
 
     input.addEventListener(
-      "keypress",
+      'keypress',
       (e) => {
-        if (e.key === "Enter") {
-          if (input.value === "") {
+        if (e.key === 'Enter') {
+          if (input.value === '') {
             const filterdDoList = lo.without(toDoList, toDoList[i]);
             reloadList(filterdDoList);
 
             filterdDoList.map((obj, i) => {
               obj.index = i;
+              return obj;
             });
 
-            localStorage.setItem("activityArr", JSON.stringify(filterdDoList));
-            // window.location.reload();
+            localStorage.setItem('activityArr', JSON.stringify(filterdDoList));
+            window.location.reload();
           } else {
-            const newList = JSON.parse(localStorage.getItem("activityArr"));
+            const newList = JSON.parse(localStorage.getItem('activityArr'));
 
             newList[i].description = input.value;
 
-            localStorage.setItem("activityArr", JSON.stringify(newList));
+            localStorage.setItem('activityArr', JSON.stringify(newList));
             window.location.reload();
           }
         }
       },
-      false
+      false,
     );
   });
 });
@@ -69,14 +73,14 @@ todoItems.forEach((node, i) => {
 // make active class
 allToDoInputs.forEach((a, i, arr) => {
   const copyArr = Array.from(arr);
-  a.addEventListener("click", (e) => {
+  a.addEventListener('click', (e) => {
     const filterd = copyArr.filter((a) => a.id !== e.target.id);
 
     filterd.forEach((a) => {
-      a.classList.remove("active");
+      a.classList.remove('active');
     });
     const clicked = lo.difference(copyArr, filterd)[0];
-    clicked.className = "active tdo-item";
+    clicked.className = 'active tdo-item';
 
     const toNodeList = function (arrayOfNodes) {
       const fragment = document.createDocumentFragment();
