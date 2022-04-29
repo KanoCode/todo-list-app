@@ -20,9 +20,10 @@ todoItems.forEach((node, i) => {
   deleteBtns.addEventListener("click", () => {
     if (input.value === "") {
       const filterdDoList = lo.without(toDoList, toDoList[i]);
+      console.log(filterdDoList);
       reloadList(filterdDoList);
       localStorage.setItem("activityArr", JSON.stringify(filterdDoList));
-      window.location.reload();
+      // window.location.reload();
     } else {
       window.location.reload();
     }
@@ -43,8 +44,13 @@ todoItems.forEach((node, i) => {
           if (input.value === "") {
             const filterdDoList = lo.without(toDoList, toDoList[i]);
             reloadList(filterdDoList);
+
+            filterdDoList.map((obj, i) => {
+              obj.index = i;
+            });
+
             localStorage.setItem("activityArr", JSON.stringify(filterdDoList));
-            window.location.reload();
+            // window.location.reload();
           } else {
             const newList = JSON.parse(localStorage.getItem("activityArr"));
 
@@ -63,7 +69,6 @@ todoItems.forEach((node, i) => {
 // make active class
 allToDoInputs.forEach((a, i, arr) => {
   const copyArr = Array.from(arr);
-  console.log(arr);
   a.addEventListener("click", (e) => {
     const filterd = copyArr.filter((a) => a.id !== e.target.id);
 
