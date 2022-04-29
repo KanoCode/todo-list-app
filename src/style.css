@@ -25,13 +25,17 @@ nav {
   margin-right: 64%;
 }
 
-.tdo-item {
+#to-do-list > div,
+.tdo-item,
+.active {
   position: relative;
   display: grid;
+  
+  gap: 4%;
   height: 50px;
   grid-template-columns: 15px auto 15px;
   align-items: center;
-  width: 94%;
+  width: 99%;
   margin: auto;
   border-bottom: solid #ddd 1px;
 }
@@ -49,7 +53,7 @@ nav {
   width: 90%;
 }
 
-#to-do-list .tdo-item > input[type="text"] {
+#to-do-list .tdo-item > input {
   margin-left: 4%;
   grid-column: 2 / span 1;
   text-align: left;
@@ -90,6 +94,11 @@ nav {
 
 .tdo-item input:focus {
   outline: none;
+  margin-left: 4%;
+  grid-column: 2 / span 1;
+  text-align: left;
+  height: 100%;
+  width: 90%;
 }
 
 .fa-ellipsis-vertical:hover {
@@ -105,7 +114,16 @@ footer {
 }
 
 .active {
-  background-color: rgb(210, 255, 47);
+  background-color: #fdf7e2;
+}
+.active input {
+  border: none;
+}
+.active input:focus {
+  height: 48px;
+  width: 80%;
+  background-color: inherit;
+  outline: none;
 }
 .active .fa-ellipsis-vertical {
   display: none;
