@@ -2,12 +2,11 @@ export const ToDoList = document.getElementById('to-do-list');
 
 const createTodoItem = (obj) => {
   const tdoItem = document.createElement('div');
-  tdoItem.className = 'tdo-item';
+  tdoItem.className = `tdo-item ${obj.completed ? 'completed' : ''}`;
   tdoItem.id = `${obj.index}`;
   tdoItem.innerHTML = ` <span class="before"></span>
   <input 
   id="${obj.index}"
-    class="${obj.completed ? 'completed' : ''}"
     type="button"
     value="${obj.description}"
 
