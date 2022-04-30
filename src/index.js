@@ -3,6 +3,7 @@ import './modules/dependencies';
 import './modules/UpdateList';
 import * as lo from 'lodash';
 import { ToDoList } from './modules/createList';
+import removeAll from './modules/removeAll';
 
 import reloadList from './modules/preload';
 
@@ -31,6 +32,10 @@ todoItems.forEach((node, i) => {
       window.location.reload();
     }
   });
+
+  if (node.classList.contains('completed')) {
+    node.childNodes[1].innerHTML = '<i class="fa-solid fa-check"></i>';
+  }
 
   // input events form editing
   input.addEventListener('click', () => {
@@ -93,3 +98,29 @@ allToDoInputs.forEach((a, i, arr) => {
     toNodeList(copyArr);
   });
 });
+
+// checkboxes
+const checkboxes = document.querySelectorAll('.before');
+
+checkboxes.forEach((a, i) => {
+  a.addEventListener('click', () => {
+    if (a.parentElement.classList.contains('completed')) {
+      a.parentElement.classList.remove('completed');
+      const currentLocalList = JSON.parse(localStorage.getItem('activityArr'));
+      currentLocalList[i].completed = false;
+      localStorage.setItem('activityArr', JSON.stringify(currentLocalList));
+      a.innerHTML = '';
+    } else {
+      a.parentElement.classList.add('completed');
+      a.innerHTML = '<i class="fa-solid fa-check"></i>';
+      const currentLocalList = JSON.parse(localStorage.getItem('activityArr'));
+      currentLocalList[i].completed = true;
+      localStorage.setItem('activityArr', JSON.stringify(currentLocalList));
+      window.location.reload();
+    }
+  });
+});
+
+// remove all completed items
+const removeCompleted = document.querySelector('.last-row');
+removeCompleted.addEventListener('click', removeAll);
