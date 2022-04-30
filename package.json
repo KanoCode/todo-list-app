@@ -1,4 +1,5 @@
 {
+  "homepage": "https://kanocode.github.io/todo-list-app/",
   "name": "webpack-boiler-plate",
   "version": "1.0.0",
   "description": "",
@@ -6,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "build": "webpack",
+    "deploy": "gh-pages -d build",
+    "predeploy":"npm run build"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +34,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "lodash": "^4.17.21"
   }
 }
