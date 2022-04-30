@@ -6,4 +6,5 @@ const remove = () => {
   window.location.reload();
 };
 
+
 export default remove;

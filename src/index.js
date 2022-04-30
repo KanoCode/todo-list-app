@@ -3,7 +3,7 @@ import "./modules/dependencies";
 import "./modules/UpdateList";
 import * as lo from "lodash";
 import { ToDoList } from "./modules/createList";
-import removeAll from "./modules/removeAll"
+import removeAll from "./modules/removeAll";
 
 import reloadList from "./modules/preload";
 
@@ -110,6 +110,7 @@ checkboxes.forEach((a, i) => {
       currentLocalList[i].completed = false;
       localStorage.setItem("activityArr", JSON.stringify(currentLocalList));
       window.location.reload();
+      reloadList(currentLocalList);
       a.innerHTML = "";
     } else {
       a.parentElement.classList.add("completed");
@@ -124,6 +125,4 @@ checkboxes.forEach((a, i) => {
 
 // remove all completed items
 const removeCompleted = document.querySelector(".last-row");
-removeCompleted.addEventListener("click", removeAll )
-
-
+removeCompleted.addEventListener("click", removeAll);
