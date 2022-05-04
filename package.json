@@ -5,12 +5,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack --mode development",
     "start": "webpack serve --open",
     "build": "webpack",
     "deploy": "gh-pages -d dist",
-    "predeploy":"npm run build"
+    "predeploy": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.0.3",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
