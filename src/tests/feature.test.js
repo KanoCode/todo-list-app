@@ -1,10 +1,15 @@
+/*
+ * @jest-environment jsdom
+ */
+
+import { describe, expect, test } from "@jest/globals";
 import { addTodo, removeToDo } from "../__mocks__/features.js";
-import { localStorage } from "../__mocks__/localStorage.js";
+import { localStorage } from "../__mocks__/localStorage";
 
 describe("Test to do list add and remove features", () => {
   test("Should add item in local storage", () => {
     document.body.innerHTML =
-      'c<input type="text" value="Go to gym" id="todo-input">';
+      '<input type="text" value="Go to gym" id="todo-input">';
     addTodo();
     addTodo();
 

@@ -23,6 +23,7 @@
     "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -33,6 +34,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "file-loader": "^6.2.0",
     "gh-pages": "^3.2.3",
