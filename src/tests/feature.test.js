@@ -1,22 +1,22 @@
 /*
  * @jest-environment jsdom
  */
+/* eslint-disable import/no-extraneous-dependencies */
 
-import { describe, expect, test } from "@jest/globals";
-import { addTodo, removeToDo } from "../__mocks__/features.js";
-import { localStorage } from "../__mocks__/localStorage";
+import { describe, expect, test } from '@jest/globals';
+import { addTodo, removeToDo } from '../__mocks__/features';
+import { localStorage } from '../__mocks__/localStorage';
 
-describe("Test to do list add and remove features", () => {
-  test("Should add item in local storage", () => {
-    document.body.innerHTML =
-      '<input type="text" value="Go to gym" id="todo-input">';
+describe('Test to do list add and remove features', () => {
+  test('Should add item in local storage', () => {
+    document.body.innerHTML = '<input type="text" value="Go to gym" id="todo-input">';
     addTodo();
     addTodo();
 
     expect(localStorage.items.length).toBe(2);
-    expect(localStorage.getItem(1).data.descrption).toBe("Go to gym");
+    expect(localStorage.getItem(1).data.descrption).toBe('Go to gym');
   });
-  test("Should remove todo item from local storage ", () => {
+  test('Should remove todo item from local storage ', () => {
     removeToDo(1);
     expect(localStorage.items.length).toBe(1);
     expect(localStorage.getItem(1).completed).toBeFalsy();

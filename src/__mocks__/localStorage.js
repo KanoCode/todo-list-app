@@ -7,5 +7,3 @@ export const localStorage = {
   },
   getItem: (key) => items.filter((item) => item.key === key)[0],
 };
-
-
