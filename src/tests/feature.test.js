@@ -23,7 +23,6 @@ describe('Test to do list add and remove features', () => {
     expect(localStorage.items.length).toBe(1);
     expect(localStorage.getItem(1).data.completed).toBe(false);
   });
-// code
 });
 
 test('Should Edit The Value Inputted', () => {
@@ -41,5 +40,3 @@ test('Should remove all completed taks', () => {
   deleteCompleted();
   expect(localStorage.items.length).toBe(0);
 });
-
-// Comment to be removed
