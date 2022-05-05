@@ -26,7 +26,6 @@ describe('Test to do list add and remove features', () => {
 // code
 });
 
-
 test('Should Edit The Value Inputted', () => {
   document.body.innerHTML = '<input type="text" value="Go to gym" id="todo-input">';
   editToDo('Take A Walk', 1);
@@ -42,3 +41,5 @@ test('Should remove all completed taks', () => {
   deleteCompleted();
   expect(localStorage.items.length).toBe(0);
 });
+
+// Comment to be removed
