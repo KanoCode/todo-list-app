@@ -10,8 +10,6 @@
 
 > Screen shot for tests.
 
-> This is a simple webapp that allows a user to keep track of things to do within a day, mark activities that have been done, it also allows a user to delete an activity.
-
 [See it Live Here](https://kanocode.github.io/todo-list-app/)
 
 ## Built With
