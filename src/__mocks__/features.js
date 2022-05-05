@@ -16,7 +16,7 @@ export const removeToDo = (index) => {
   );
   localStorage.items = newItems;
 };
-//code
+// code
 export const editToDo = (description, index) => {
   const todo = localStorage.items.filter(
     (item) => item.data.index === index,
@@ -26,14 +26,14 @@ export const editToDo = (description, index) => {
   todoDesc.value = description;
 };
 
-//code
+// code
 export const updateStatus = (index) => {
   const todo = localStorage.items.filter(
     (item) => item.data.index === index,
   )[0];
   todo.data.completed = true;
 };
-//code
+// code
 export const deleteCompleted = () => {
   const newItems = localStorage.items.filter(
     (item) => item.data.completed !== true,
